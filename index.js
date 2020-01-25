@@ -132,7 +132,20 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor extends Lambdasian {}
+class Instructor extends Lambdasian {
+  constructor(aboutInstructor) {
+    super(aboutInstructor);
+    this.specialty = aboutInstructor.specialty;
+    this.favLanguage = aboutInstructor.favLanguage;
+    this.catchPhrase = aboutInstructor.catchPhrase;
+  }
+  demo(subject) {
+    return `Today we are learning about ${subject}`;
+  }
+  grade(student, subject) {
+    return `${student.name} receives a perfect score on ${subject}`;
+  }
+}
 
 /*
   TASK 5
@@ -170,7 +183,9 @@ class ProjectManager extends Instructor {
     this.gradClassName = options.gradClassName;
     this.favInstructor = options.favInstructor;
   }
-  standUp(webPT14) {}
+  standUp(slackChannel) {
+    return `${this.name} announces to ${slackChannel}, @channel standy time!`;
+  }
   debugsCode(webPT14) {
     return `${this.name} debugs ${student.name}'s code on ${subject}`;
   }
