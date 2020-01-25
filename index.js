@@ -162,7 +162,25 @@ class Instructor extends Lambdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student extends Lambdasian {}
+class Student extends Lambdasian {
+  constructor(studBackground) {
+    super(studBackground);
+    this.previousBackground = studBackground.previousBackground;
+    this.className = studBackground.className;
+    this.favSubjects = studBackground.favSubjects;
+  }
+  listSubjects() {
+    return this.favSubjects.toString();
+    // return "Loving HTML, CSS, JS!";
+    // WHY IS THIS NOT WORKING? ^^^^
+  }
+  PRAssignment(subject) {
+    return `${this.name} has submitted a PR for ${subject}`;
+  }
+  sprintChallenge(subject) {
+    return `${this.name} has begun sprint challenge on ${subject}`;
+  }
+}
 
 /*
   TASK 6
@@ -187,7 +205,7 @@ class ProjectManager extends Instructor {
     return `${this.name} announces to ${slackChannel}, @channel standy time!`;
   }
   debugsCode(webPT14) {
-    return `${this.name} debugs ${student.name}'s code on ${subject}`;
+    return `${this.name} debugs ${this.name}'s code on ${subject}`;
   }
 }
 
