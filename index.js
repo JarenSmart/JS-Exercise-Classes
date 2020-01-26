@@ -171,8 +171,6 @@ class Student extends Lambdasian {
   }
   listSubjects() {
     return this.favSubjects.toString();
-    // return "Loving HTML, CSS, JS!";
-    // WHY IS THIS NOT WORKING? ^^^^
   }
   PRAssignment(subject) {
     return `${this.name} has submitted a PR for ${subject}`;
@@ -204,8 +202,8 @@ class ProjectManager extends Instructor {
   standUp(slackChannel) {
     return `${this.name} announces to ${slackChannel}, @channel standy time!`;
   }
-  debugsCode(webPT14) {
-    return `${this.name} debugs ${this.name}'s code on ${subject}`;
+  debugsCode(studentObj, subject) {
+    return `${this.name} debugs ${studentObj.name}'s code on ${subject}`;
   }
 }
 
